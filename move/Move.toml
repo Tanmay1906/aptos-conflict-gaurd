@@ -1,0 +1,14 @@
+[package]
+name = "token_transfer"
+version = "1.0.0"
+authors = ["messi"]
+license = "MIT"
+
+[addresses]
+token_transfer = "0xe57cc832da53b0676291024beae6b66174dada2234034855a9feaded1bccedab"
+
+[dependencies]
+AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "aptos-release-v1_14_1", subdir = "aptos-move/framework/aptos-framework" }
+AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "aptos-release-v1_14_1", subdir = "aptos-move/framework/aptos-stdlib" }
+AptosToken = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "aptos-release-v1_14_1", subdir = "aptos-move/framework/aptos-token" }
+MoveStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", rev = "aptos-release-v1_14_1", subdir = "aptos-move/framework/move-stdlib" }

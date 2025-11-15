@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 42 33% 97%;
+    --foreground: 221 55% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 221 55% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 55% 16%;
+
+    --primary: 221 63% 18%;
+    --primary-foreground: 42 41% 96%;
+
+    --secondary: 218 35% 28%;
+    --secondary-foreground: 42 41% 96%;
+
+    --muted: 42 30% 92%;
+    --muted-foreground: 221 20% 45%;
+
+    --accent: 37 58% 55%;
+    --accent-foreground: 221 63% 18%;
+
+    --destructive: 0 68% 56%;
+    --destructive-foreground: 42 41% 96%;
+
+    --border: 42 26% 85%;
+    --input: 42 26% 85%;
+    --ring: 37 58% 55%;
+
+    --radius: 0.85rem;
+
+    --success: 147 43% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 42 41% 96%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(221 63% 18%) 0%, hsl(37 58% 55%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(0 0% 100% / 0.12) 0%, hsla(42 30% 92% / 0.08) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(42 30% 94%));
+
+    /* Shadows */
+    --shadow-sm: 0 4px 12px hsla(221 63% 18% / 0.05);
+    --shadow-md: 0 8px 24px hsla(221 63% 18% / 0.08);
+    --shadow-lg: 0 16px 48px hsla(221 63% 18% / 0.12);
+    --shadow-glow: 0 0 40px hsla(37 58% 55% / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 221 45% 10%;
+    --foreground: 42 41% 96%;
+
+    --card: 221 45% 12%;
+    --card-foreground: 42 41% 96%;
+
+    --popover: 221 45% 12%;
+    --popover-foreground: 42 41% 96%;
+
+    --primary: 37 58% 55%;
+    --primary-foreground: 221 63% 12%;
+
+    --secondary: 221 40% 18%;
+    --secondary-foreground: 42 41% 96%;
+
+    --muted: 221 35% 18%;
+    --muted-foreground: 42 20% 80%;
+
+    --accent: 37 58% 58%;
+    --accent-foreground: 221 63% 12%;
+
+    --destructive: 0 68% 56%;
+    --destructive-foreground: 42 41% 96%;
+
+    --border: 221 35% 24%;
+    --input: 221 35% 24%;
+    --ring: 37 58% 58%;
+
+    --success: 147 43% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 42 41% 96%;
+
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(221 40% 12%) 0%, hsl(37 58% 48%) 100%);
+    --gradient-glass: linear-gradient(145deg, hsla(221 35% 18% / 0.65), hsla(221 35% 14% / 0.35));
+    --gradient-card: linear-gradient(160deg, hsl(221 40% 14%), hsl(221 35% 18%));
+
+    /* Dark shadows */
+    --shadow-sm: 0 4px 12px hsla(221 63% 5% / 0.35);
+    --shadow-md: 0 8px 32px hsla(221 63% 5% / 0.45);
+    --shadow-lg: 0 16px 48px hsla(221 63% 5% / 0.55);
+    --shadow-glow: 0 0 40px hsla(37 58% 58% / 0.35);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", "Inter", serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-effect {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(14px);
+    border: 1px solid hsl(var(--border) / 0.35);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .legal-pattern {
+    background-image:
+      radial-gradient(circle at 20% 20%, hsla(37 58% 55% / 0.08), transparent 55%),
+      radial-gradient(circle at 80% 0%, hsla(221 63% 18% / 0.08), transparent 45%),
+      linear-gradient(120deg, hsla(42 30% 92% / 0.8), hsla(0 0% 100% / 0.6));
+  }
+
+  .legal-grid {
+    background-image: linear-gradient(
+        hsla(221 20% 40% / 0.08) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsla(221 20% 40% / 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0));
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-18px);
+    }
+  }
+}
