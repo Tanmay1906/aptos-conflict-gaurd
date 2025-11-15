@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(() => localStorage.getItem("authToken"));
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const persistToken = useCallback((t: string | null) => {
     if (t) localStorage.setItem("authToken", t);
